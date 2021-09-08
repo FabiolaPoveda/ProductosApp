@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Domain.Entietes
 {
-    class Producto
+    public class Producto
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

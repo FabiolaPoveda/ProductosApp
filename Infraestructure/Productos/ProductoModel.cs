@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using System.Text;
 using Domain;
+using Domain.Entietes;
+
 namespace Infraestructure.Productos
 {
-    class ProductoModel
+    public class ProductoModel
     {
         private Producto[] productos;
 
-        public void (Producto p)
+        public void Add (Producto p)
         {
-            Add(p, ref, productos);
+            Add(p, ref productos);
         }
         public int Update(Producto p)
         {
@@ -32,19 +34,21 @@ namespace Infraestructure.Productos
             }
             if (index != productos.Length - 1)
             {
-            productos[index] = Productos[productos.Length - 1];
+            productos[index] = productos[productos.Length - 1];
             }
 
             Producto[] tmp = new Producto[productos.Length - 1];
             Array.Copy(productos, tmp, tmp.Length - 1);
+
+            return productos.Length == tmp.Length;
         }
-        public producto[] GetAll()
+        public Producto[] GetAll()
         {
             return productos;
         }
 
         #region private method
-        public void Add(Producto p, Producto[] pds)
+        public void Add(Producto p, ref Producto[] pds)
         {
             if(pds == null)
             {
